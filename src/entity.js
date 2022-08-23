@@ -44,7 +44,7 @@ export const entityStateDisplay = (hass, stateObj, config) => {
             value = Math.round((value / 255) * 100);
             unit = '%';
         } else if (config.format.startsWith('duration')) {
-            value = secondsToDuration(config.format === 'duration-m' ? value / 1000 : value);
+            value = secondsToDuration(config.format === 'duration-h' ? value * 3600 : value);
             unit = undefined;
         } else if (config.format.startsWith('precision')) {
             const precision = parseInt(config.format.slice(-1), 10);
